@@ -1,0 +1,168 @@
+{
+  "endpoint": "NR-ER",
+  "bootstrap": {
+    "status": "withdrawn",
+    "reason": "The original sampler discarded repeated scaffold draws. Original NR-ER checkpoint and test predictions are unavailable, so corrected intervals cannot be recovered for this run. Point estimates are retained from the original artifact."
+  },
+  "primary_model": "logistic_regression",
+  "counts": {
+    "train": 4872,
+    "valid": 609,
+    "test": 610,
+    "test_actives": 55,
+    "test_prevalence": 0.09016393442622951,
+    "train_actives": 659,
+    "train_prevalence": 0.13526272577996715,
+    "valid_actives": 67
+  },
+  "models": {
+    "logistic_regression": {
+      "auroc": 0.6437018837018836,
+      "auprc": 0.24447370523955186,
+      "auroc_ci95": [null, null],
+      "auprc_ci95": [null, null],
+      "n_boot_used": 0,
+      "ece": 0.03278688524590165,
+      "conformal": {
+        "alpha": 0.1,
+        "qhat": 0.8321988231486747,
+        "coverage": 0.9295081967213115,
+        "mean_set_size": 1.044262295081967,
+        "singleton_fraction": 0.9557377049180328
+      },
+      "applicability_domain": {
+        "threshold": 0.3,
+        "in_domain_fraction": 0.17868852459016393,
+        "median_nn_distance": 0.5025773195876289,
+        "in_domain": {
+          "auroc": 0.751010101010101,
+          "auprc": 0.3249433336284744
+        },
+        "out_domain": {
+          "auroc": 0.618640350877193,
+          "auprc": 0.23838206778365084
+        },
+        "conformal_coverage_in_domain": 0.9357798165137615,
+        "conformal_coverage_out_domain": 0.9281437125748503
+      }
+    },
+    "random_forest": {
+      "auroc": 0.7261261261261261,
+      "auprc": 0.27399846871754974,
+      "auroc_ci95": [null, null],
+      "auprc_ci95": [null, null],
+      "n_boot_used": 0,
+      "ece": 0.044480874316939895,
+      "conformal": {
+        "alpha": 0.1,
+        "qhat": 0.8050384583242585,
+        "coverage": 0.9311475409836065,
+        "mean_set_size": 1.044262295081967,
+        "singleton_fraction": 0.9557377049180328
+      },
+      "applicability_domain": {
+        "threshold": 0.3,
+        "in_domain_fraction": 0.17868852459016393,
+        "median_nn_distance": 0.5025773195876289,
+        "in_domain": {
+          "auroc": 0.7005050505050505,
+          "auprc": 0.2855829101913115
+        },
+        "out_domain": {
+          "auroc": 0.7325779727095516,
+          "auprc": 0.3250834393495251
+        },
+        "conformal_coverage_in_domain": 0.944954128440367,
+        "conformal_coverage_out_domain": 0.9281437125748503
+      }
+    },
+    "gnn": {
+      "auroc": 0.6656511056511056,
+      "auprc": 0.2487100767515471,
+      "auroc_ci95": [null, null],
+      "auprc_ci95": [null, null],
+      "n_boot_used": 0,
+      "ece": 0.040327868852459016,
+      "conformal": {
+        "alpha": 0.1,
+        "qhat": 0.8147866129875183,
+        "coverage": 0.9344262295081968,
+        "mean_set_size": 1.0721311475409836,
+        "singleton_fraction": 0.9278688524590164
+      },
+      "applicability_domain": {
+        "threshold": 0.3,
+        "in_domain_fraction": 0.17868852459016393,
+        "median_nn_distance": 0.5025773195876289,
+        "in_domain": {
+          "auroc": 0.507070707070707,
+          "auprc": 0.2540817143842746
+        },
+        "out_domain": {
+          "auroc": 0.7042884990253411,
+          "auprc": 0.2639767289334404
+        },
+        "conformal_coverage_in_domain": 0.926605504587156,
+        "conformal_coverage_out_domain": 0.936127744510978
+      }
+    },
+    "mlp_tf": {
+      "auroc": 0.6787551187551187,
+      "auprc": 0.3135887888160853,
+      "auroc_ci95": [null, null],
+      "auprc_ci95": [null, null],
+      "n_boot_used": 0,
+      "ece": 0.05278688524590166,
+      "conformal": {
+        "alpha": 0.1,
+        "qhat": 0.7838691397903325,
+        "coverage": 0.9278688524590164,
+        "mean_set_size": 1.0278688524590165,
+        "singleton_fraction": 0.9721311475409836
+      },
+      "applicability_domain": {
+        "threshold": 0.3,
+        "in_domain_fraction": 0.17868852459016393,
+        "median_nn_distance": 0.5025773195876289,
+        "in_domain": {
+          "auroc": 0.8227272727272728,
+          "auprc": 0.47373610480571426
+        },
+        "out_domain": {
+          "auroc": 0.6482699805068226,
+          "auprc": 0.2987226271251591
+        },
+        "conformal_coverage_in_domain": 0.9357798165137615,
+        "conformal_coverage_out_domain": 0.9261477045908184
+      }
+    }
+  },
+  "auroc": 0.6437018837018836,
+  "auprc": 0.24447370523955186,
+  "auroc_ci95": [null, null],
+  "auprc_ci95": [null, null],
+  "n_boot_used": 0,
+  "ece": 0.03278688524590165,
+  "conformal": {
+    "alpha": 0.1,
+    "qhat": 0.8321988231486747,
+    "coverage": 0.9295081967213115,
+    "mean_set_size": 1.044262295081967,
+    "singleton_fraction": 0.9557377049180328
+  },
+  "applicability_domain": {
+    "threshold": 0.3,
+    "in_domain_fraction": 0.17868852459016393,
+    "median_nn_distance": 0.5025773195876289,
+    "in_domain": {
+      "auroc": 0.751010101010101,
+      "auprc": 0.3249433336284744
+    },
+    "out_domain": {
+      "auroc": 0.618640350877193,
+      "auprc": 0.23838206778365084
+    },
+    "conformal_coverage_in_domain": 0.9357798165137615,
+    "conformal_coverage_out_domain": 0.9281437125748503
+  }
+}

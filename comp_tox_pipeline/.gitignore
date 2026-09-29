@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+.pytest_cache/
+.ipynb_checkpoints/
+.snakemake/
+
+# data and results are generated, not committed — except compact artifacts
+data/raw/*
+data/processed/*
+results/*
+!**/.gitkeep
+!results/metrics.json
+!results/calibration.png
+!results/metrics_NR-AR.json
+!results/calibration_NR-AR.png
+!results/metrics_NR-AR_predictions.parquet
+!results/metrics_predictions.parquet

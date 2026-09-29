@@ -1,0 +1,81 @@
+import sys
+
+configfile: "config/config.yaml"
+
+PY = sys.executable  # the interpreter running snakemake; keeps the DAG on the project venv
+ASSAY = config["endpoint"]["assay_id"]
+
+
+rule all:
+    input:
+        "results/metrics.json",
+        "results/calibration.png",
+
+
+rule download:
+    output:
+        f"data/raw/assay_{ASSAY}.parquet",
+    shell:
+        "{PY} -m comp_tox.data.toxcast --output {output}"
+
+
+rule standardize:
+    input:
+        f"data/raw/assay_{ASSAY}.parquet",
+    output:
+        "data/processed/compounds.parquet",
+    shell:
+        "{PY} -m comp_tox.data.standardize {input} {output}"
+
+
+rule features:
+    input:
+        "data/processed/compounds.parquet",
+    output:
+        npz="data/processed/features.npz",
+        meta="data/processed/features_meta.parquet",
+    shell:
+        "{PY} -m comp_tox.features.build {input} {output.npz} {output.meta}"
+
+
+rule graphs:
+    input:
+        "data/processed/features_meta.parquet",
+    output:
+        "data/processed/graphs.pt",
+    shell:
+        "{PY} -m comp_tox.features.graphs {input} {output}"
+
+
+rule split:
+    input:
+        "data/processed/features_meta.parquet",
+    output:
+        "data/processed/splits.parquet",
+    shell:
+        "{PY} -m comp_tox.eval.splits {input} {output}"
+
+
+rule train:
+    input:
+        splits="data/processed/splits.parquet",
+        features="data/processed/features.npz",
+        graphs="data/processed/graphs.pt",
+    output:
+        "results/model.joblib",
+    shell:
+        "{PY} -m comp_tox.models.train {input.splits} {input.features} {input.graphs} {output}"
+
+
+rule evaluate:
+    input:
+        model="results/model.joblib",
+        splits="data/processed/splits.parquet",
+        features="data/processed/features.npz",
+        graphs="data/processed/graphs.pt",
+    output:
+        metrics="results/metrics.json",
+        calibration="results/calibration.png",
+    shell:
+        "{PY} -m comp_tox.eval.evaluate {input.model} {input.splits} {input.features}"
+        " {input.graphs} --metrics {output.metrics} --calibration {output.calibration}"

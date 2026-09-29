@@ -1,0 +1,27 @@
+endpoint:
+  name: "tox21-nr-er"
+  source: "tox21"             # tox21 | toxcast | pubchem | chembl
+  assay_id: "NR-ER"           # Tox21 nuclear-receptor estrogen agonism
+  url: "https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/tox21.csv.gz"
+
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+
+split:
+  method: "scaffold"          # never report random-split numbers as headline
+  frac_train: 0.8
+  frac_valid: 0.1
+  seed: 0
+
+model:
+  type: "logistic_regression" # primary; compared models evaluated on identical splits
+  compare: ["random_forest", "gnn", "mlp_tf"]
+  fingerprint: "morgan-r2-2048"
+
+evaluation:
+  metrics: ["auroc", "auprc", "ece", "conformal_coverage_90"]
+  n_bootstrap: 1000
+  conformal_alpha: 0.1        # miscoverage target -> 90% coverage sets
+  ad_method: "tanimoto_nn"    # applicability domain: nearest-neighbor distance
+  ad_threshold: 0.3           # TODO: calibrate on validation scaffolds
