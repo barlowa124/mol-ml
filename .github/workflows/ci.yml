@@ -1,0 +1,44 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  package-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        pkg: [comp_tox_pipeline, dti_fusion, dockops]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install ${{ matrix.pkg }}
+        working-directory: ${{ matrix.pkg }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e '.[test]'
+          pip install pytest
+      - name: Test ${{ matrix.pkg }}
+        working-directory: ${{ matrix.pkg }}
+        run: PYTHONPATH=src python -m pytest tests/ -q
+
+  snakemake-dryrun:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - working-directory: comp_tox_pipeline
+        run: |
+          pip install -e . snakemake
+          snakemake -n -s workflow/Snakefile
+      - working-directory: dti_fusion
+        run: |
+          pip install -e . snakemake
+          snakemake -n

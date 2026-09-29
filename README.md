@@ -1,9 +1,9 @@
 # mol-ml
 
-Small-molecule machine learning: toxicity, affinity, and docking over
-public datasets. Three related projects merged into one repository, each a
-self-contained package with its own tests, config, and commit history
-(imported via subtree merge).
+Small-molecule machine learning over public datasets: toxicity, affinity,
+docking. Three related projects merged into one repository, each a
+self-contained package with its own tests and commit history (imported via
+subtree merge).
 
 ## Packages
 
@@ -27,6 +27,6 @@ apply.
 
 ## Why one repo
 
-Same domain, same conventions: public data only, structural splits treated
-as the honest prospective estimate, provenance manifests on every result.
-One repo makes the conventions shared rather than parallel.
+Same domain, same conventions. Public data only, structural splits as the
+prospective estimate, provenance manifests on every result. One repo
+keeps them consistent across three projects.
