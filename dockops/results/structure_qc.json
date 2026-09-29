@@ -1,0 +1,44 @@
+{
+  "uniprot": "P00533",
+  "afdb_source": "https://alphafold.ebi.ac.uk/files/AF-P00533-F1-model_v6.pdb",
+  "afdb_plddt": {
+    "n_residues": 1210,
+    "mean_plddt": 75.95,
+    "frac_confident_70": 0.707,
+    "frac_very_high_90": 0.474,
+    "min_plddt": 23.8
+  },
+  "af_vs_experimental": {
+    "n_paired_residues": 312,
+    "numbering_offset": -24,
+    "ca_rmsd": 11.675,
+    "frac_ca_within_2a": 0.09,
+    "median_ca_dev": 4.56
+  },
+  "experimental_minimization": {
+    "n_atoms": 5327,
+    "pe_before_kj_mol": 240754548.9,
+    "pe_after_kj_mol": -45182.6,
+    "delta_pe_kj_mol": -240799731.5,
+    "rmsd_to_start_nm": 0.0855
+  },
+  "provenance": {
+    "git": "077d73bc2326117bd31a4c2e911e40832b2e9570+dirty",
+    "utc": "2026-09-24T20:50:47.559549+00:00",
+    "engine": "structure_qc",
+    "versions": {
+      "dockops": "0.1.0",
+      "numpy": "2.4.6",
+      "pandas": "3.0.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "rdkit": "2026.3.6",
+      "fastapi": "0.141.1"
+    },
+    "input_sha256": {
+      "data/raw/receptor.pdb": "5b020cd186307d657de80611793554b074f6936a3443d33f81d9b1a58004962e",
+      "data/raw/afdb_model.pdb": "8b381730ae157a75f2fbc78043aff7b9e605a30420dfe749a56cd61f12125cb9"
+    },
+    "config_sha256": "563b3c006b4cdf2fd39417875ffa46bb567ea16b8a3adab496dedd64c713d9c5"
+  }
+}

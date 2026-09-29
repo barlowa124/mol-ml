@@ -1,0 +1,69 @@
+import sys
+
+configfile: "config/config.yaml"
+
+PY = sys.executable  # the interpreter running snakemake; keeps the DAG on the project venv
+
+LIGANDS = config["benchmark"]["ligands_csv"]
+TARGET = "demo_target"
+
+
+rule all:
+    input:
+        "results/metrics.json",
+
+
+rule dock:
+    input:
+        LIGANDS,
+    output:
+        scores="data/processed/scores.csv",
+        provenance="data/processed/provenance.json",
+    shell:
+        "{PY} -m dockops.pipeline {input} {TARGET} {output.scores} {output.provenance}"
+
+
+rule benchmark:
+    input:
+        scores="data/processed/scores.csv",
+        ligands=LIGANDS,
+    output:
+        "results/metrics.json",
+    shell:
+        "{PY} -m dockops.benchmark {input.scores} {input.ligands} {output}"
+
+
+# Optional real-data cohort: DUD-E egfr actives + decoys staged by
+# `python -m dockops.fetch` (data/raw/ligands_real.csv is gitignored).
+# Not in `all`; run `snakemake metrics_real` to exercise the batch path on
+# 3,542 real SMILES. Scores stay engine-labeled (mock = mechanics demo).
+rule dock_real:
+    input:
+        "data/raw/ligands_real.csv",
+    output:
+        scores="data/processed/scores_real.csv",
+        provenance="data/processed/provenance_real.json",
+    shell:
+        "{PY} -m dockops.pipeline {input} egfr_1m17 {output.scores} {output.provenance}"
+
+
+rule benchmark_real:
+    input:
+        scores="data/processed/scores_real.csv",
+        ligands="data/raw/ligands_real.csv",
+    output:
+        "results/metrics_real.json",
+    shell:
+        "{PY} -m dockops.benchmark {input.scores} {input.ligands} {output}"
+
+
+# Optional: receptor readiness QC (AFDB confidence + exp. agreement + MD).
+# Needs data/raw/receptor.pdb — run `python -m dockops.fetch` first.
+rule structure_qc:
+    input:
+        receptor="data/raw/receptor.pdb",
+        afdb="data/raw/afdb_model.pdb",
+    output:
+        "results/structure_qc.json",
+    shell:
+        "{PY} -m dockops.structure_qc {input.receptor} {input.afdb} {output}"

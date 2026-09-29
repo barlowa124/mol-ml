@@ -1,0 +1,33 @@
+engine: "mock"            # mock | vina
+engine_params:            # passed to the engine constructor (vina only)
+  exhaustiveness: 8
+  seed: 0
+
+targets:
+  demo_target:
+    receptor_pdbqt: "data/raw/receptor.pdbqt"   # TODO: absent until real prep; mock ignores
+    box_center: [0.0, 0.0, 0.0]                  # placeholder; replace per target
+    box_size: [22.5, 22.5, 22.5]
+    description: "Illustrative target for pipeline smoke tests"
+  egfr_1m17:
+    receptor_pdb: "data/raw/receptor.pdb"        # fetched via dockops.fetch (1M17, EGFR kinase)
+    receptor_pdbqt: null                         # TODO: prep to PDBQT on Linux/meeko
+    box_from_ligand: "AQ4"                       # co-crystallized erlotinib -> box derivation
+    box_padding: 5.0
+    description: "EGFR kinase domain (PDB 1M17), DUD-E actives/decoys benchmark"
+
+fetch:                          # .venv/bin/python -m dockops.fetch
+  dude_target: "egfr"
+  receptor_pdb_id: "1M17"
+  uniprot: "P00533"              # human EGFR, AFDB model for structure_qc
+  max_decoys: 3000               # DUD-E egfr ships ~15k decoys; subsample for runtime
+  seed: 0
+
+benchmark:
+  ligands_csv: "data/raw/ligands.csv"           # committed fixture (illustrative labels)
+  label_col: "label"                            # 1 = active, 0 = decoy (illustrative)
+  ef_fractions: [0.01, 0.05]
+
+paths:
+  processed_dir: "data/processed"
+  results_dir: "results"

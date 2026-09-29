@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+.pytest_cache/
+.ipynb_checkpoints/
+.snakemake/
+
+# generated artifacts (small committed fixtures/results are un-ignored below)
+data/processed/*
+data/raw/*.pdb
+# DUD-E benchmark archive; regenerate via dockops.fetch
+data/raw/ligands_real.csv
+results/*
+!data/raw/ligands.csv
+!**/.gitkeep
+!results/metrics.json
+!results/structure_qc.json
+!results/metrics_real.json

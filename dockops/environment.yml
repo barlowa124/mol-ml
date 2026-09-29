@@ -1,0 +1,9 @@
+name: dockops
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - -e .[dev,structure]
+# Optional: -c conda-forge vina meeko  (real docking backend, see docs/engine-setup.md)

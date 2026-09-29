@@ -1,0 +1,12 @@
+{
+  "engine": "mock",
+  "mock_mode": true,
+  "n_scored": 8,
+  "n_actives": 3,
+  "roc_auc": 0.6,
+  "enrichment": {
+    "ef@1%": 0.0,
+    "ef@5%": 0.0
+  },
+  "note": "mock engine, mechanics demo, not a docking result"
+}

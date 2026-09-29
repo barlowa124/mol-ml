@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dockops"
+version = "0.1.0"
+description = "Reproducible docking-as-a-service: pipeline + API + benchmark evaluation with provenance"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    "rdkit>=2024.3",
+    "fastapi",
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "snakemake>=8",
+    "uvicorn",
+    "httpx",
+]
+vina = [
+    "vina",
+    "meeko",
+]
+structure = [
+    "openmm",
+    "biopython",
+    "torch",
+    "transformers",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
