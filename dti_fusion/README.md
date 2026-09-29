@@ -75,4 +75,4 @@ Nat Biotechnol 2011.
 
 ## Related work
 
-- [protein-design-ops](https://github.com/barlowa124/protein-design-ops) and [active-learning-loop](https://github.com/barlowa124/active-learning-loop) share the ESM-2 encoder used for target embeddings here.
+- [protein-design-ops](https://github.com/barlowa124/protein-ml/tree/main/protein_design_ops) and [active-learning-loop](https://github.com/barlowa124/protein-ml/tree/main/active_learning_loop) share the ESM-2 encoder used for target embeddings here.

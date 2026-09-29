@@ -164,4 +164,4 @@ docs/          endpoint selection, data sources, evaluation notes
 
 ## Related work
 
-- [protein-stability-uncertainty](https://github.com/barlowa124/protein-stability-uncertainty) uses the same conformal machinery on a regression problem. Both repos report where marginal coverage fails, not just the headline number.
+- [protein-stability-uncertainty](https://github.com/barlowa124/protein-ml/tree/main/protein_stability_uncertainty) uses the same conformal machinery on a regression problem. Both repos report where marginal coverage fails, not just the headline number.
