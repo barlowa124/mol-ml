@@ -1,0 +1,25 @@
+# Multimodal DTI: drug fingerprint + protein language-model embedding ->
+# kinase affinity (DAVIS, GraphDTA mirror). All scientific knobs here.
+
+dataset:
+  name: "davis"
+  base_url: "https://raw.githubusercontent.com/thinng/GraphDTA/master/data/davis"
+  kd_cap_nm: 10000.0    # DAVIS affinity matrix caps weak binders at 10 uM
+  esm_max_len: 1022     # esm2_t6 context: 1024 tokens incl BOS/EOS
+
+model:
+  fingerprint: "morgan-r2-2048"
+  esm_model: "facebook/esm2_t6_8M_UR50D"   # 8M params, CPU-feasible
+  hidden: 512
+  dropout: 0.1
+  lr: 0.001
+  epochs: 40
+  batch_size: 256
+  seed: 11
+
+split:
+  cold_target_frac: 0.2   # primary eval: proteins unseen in training
+  seed: 11
+
+evaluation:
+  n_boot: 500             # bootstrap replicates for metric CIs

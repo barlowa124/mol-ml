@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-09-25T03:23:03.985966+00:00",
+  "git": "unknown",
+  "versions": {
+    "numpy": "2.0.2",
+    "pandas": "2.3.3",
+    "torch": "2.8.0"
+  },
+  "config_sha256": "2e24d561efe63c14755418f4fc3fc379357fa649bfa05551382dced8d31da830",
+  "inputs": [
+    {
+      "path": "data/processed/features.npz",
+      "sha256": "ef956a97b2729d47a2077a4331b1cad2d0a45e995323bd636285e9b3f36f2566"
+    }
+  ]
+}
