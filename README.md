@@ -1,5 +1,8 @@
 # mol-ml
 
+[![ci](https://github.com/barlowa124/mol-ml/actions/workflows/ci.yml/badge.svg)](https://github.com/barlowa124/mol-ml/actions/workflows/ci.yml)
+
+
 Small-molecule machine learning over public datasets: toxicity, affinity,
 docking. Three related projects merged into one repository, each a
 self-contained package with its own tests and commit history (imported via
