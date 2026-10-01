@@ -43,6 +43,12 @@ def check_drift(
     margins: dict | None = None,
 ) -> dict:
     margins = margins or {}
+    if batch_X.shape[0] == 0:
+        return {
+            "n_batch": 0,
+            "status": "drift_warning",
+            "warnings": ["no parseable compounds in batch"],
+        }
     nn = nn_tanimoto_distances(batch_X, ref["train_X"])
     dom = in_domain(nn, ref["ad_threshold"])
     batch_freq = np.asarray(batch_X.astype(bool).mean(axis=0)).ravel()

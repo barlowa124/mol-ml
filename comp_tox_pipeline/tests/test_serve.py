@@ -178,3 +178,26 @@ def test_model_card_renders_metrics_not_hardcode():
                         "evaluation": {"conformal_alpha": 0.1}})
     assert "NR-AR" in card and "NR-ER" not in card
     assert "0.700" in card and "unavailable" in card  # None CI -> withdrawn
+
+
+def test_reference_rejects_misaligned_inputs(tmp_path):
+    model_path, ref_path, bundle, X, y, tr = _tiny_bundle_and_reference(tmp_path)
+    import pandas as pd
+
+    bad = tmp_path / "bad_splits.parquet"
+    pd.read_parquet(tmp_path / "splits.parquet").iloc[:-1].to_parquet(bad)
+    with pytest.raises(ValueError, match="row mismatch"):
+        build_reference(
+            str(bad), str(tmp_path / "features.npz"),
+            str(tmp_path / "metrics.json"), str(model_path),
+            str(tmp_path / "o.npz"),
+        )
+
+
+def test_drift_empty_batch_warns(tmp_path):
+    model_path, ref_path, *_ = _tiny_bundle_and_reference(tmp_path)
+    pred = Predictor(str(model_path), str(ref_path))
+    X, _, keep = pred.fingerprints(["zzz", ""])
+    report = check_drift(X, np.array([]), pred.ref)
+    assert not keep and report["status"] == "drift_warning"
+    assert "no parseable" in report["warnings"][0]

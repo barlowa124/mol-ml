@@ -28,6 +28,11 @@ def build_reference(
 ) -> dict:
     df = pd.read_parquet(splits_path)
     X = sparse.load_npz(features_path).tocsr()
+    if X.shape[0] != len(df):
+        raise ValueError(
+            f"features/splits row mismatch: {X.shape[0]} vs {len(df)} — "
+            "regenerate features.npz and splits.parquet together"
+        )
     metrics = json.load(open(metrics_path))
     bundle = joblib.load(model_path)
 
@@ -47,7 +52,6 @@ def build_reference(
         # eval-set baselines: what an on-distribution batch looked like
         "baseline_nn_median": ad["median_nn_distance"],
         "baseline_in_domain_fraction": ad["in_domain_fraction"],
-        "baseline_pos_rate": None,  # filled below
         "train_rows": int(train_X.shape[0]),
         "features_sha256": bundle.get("features_sha256"),
     }

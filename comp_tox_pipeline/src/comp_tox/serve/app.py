@@ -60,9 +60,9 @@ def create_app(
     @app.post("/drift")
     def drift(batch: Batch) -> dict:
         X, _, keep = pred.fingerprints(batch.smiles)
-        if not keep:
-            return {"status": "drift_warning", "warnings": ["no parseable SMILES"]}
-        probs = np.asarray(pred.model.predict_proba(X))[:, 1]
+        probs = (
+            np.asarray(pred.model.predict_proba(X))[:, 1] if keep else np.array([])
+        )
         report = check_drift(X, probs, pred.ref, margins=margins)
         report["n_unparseable"] = len(batch.smiles) - len(keep)
         return report
