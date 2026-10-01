@@ -17,3 +17,4 @@ results/*
 !results/calibration_NR-AR.png
 !results/metrics_NR-AR_predictions.parquet
 !results/metrics_predictions.parquet
+!results/serve_reference.npz

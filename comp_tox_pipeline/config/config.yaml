@@ -25,3 +25,13 @@ evaluation:
   conformal_alpha: 0.1        # miscoverage target -> 90% coverage sets
   ad_method: "tanimoto_nn"    # applicability domain: nearest-neighbor distance
   ad_threshold: 0.3           # TODO: calibrate on validation scaffolds
+
+serve:
+  model: "results/model.joblib"
+  reference: "results/serve_reference.npz"  # frozen train profile for AD + drift
+  model_card: "docs/model-card.md"
+  drift:
+    nn_shift_margin: 0.10       # warn if batch median nn-dist exceeds eval median by this
+    in_domain_min_fraction: 0.05
+    js_margin: 0.15             # warn if bit-freq JS divergence exceeds eval baseline by this
+    pos_rate_shift: 0.05        # predicted-positive rate vs eval baseline

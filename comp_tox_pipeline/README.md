@@ -53,7 +53,48 @@ snakemake -n                 # dry-run DAG check
 
 `download → standardize → features → scaffold split → train → evaluate → report`
 
+Serving adds two derived stages, `serve_reference` and `model_card`.
 See `workflow/Snakefile`.
+
+## Serving and monitoring
+
+`src/comp_tox/serve/` is the runtime layer. `serve_reference` freezes the
+training distribution (train fingerprints, bit frequencies, conformal
+qhat, AD threshold, eval-set baseline statistics) into
+`results/serve_reference.npz`, so the service never re-reads pipeline
+intermediates.
+
+```bash
+pip install -e ".[serve]"
+uvicorn comp_tox.serve.app:app   # model/reference paths come from config.serve
+```
+
+- `POST /predict` takes `{"smiles": [...]}` and returns per-compound
+  calibrated probability, the 90% conformal set, nearest-neighbor
+  Tanimoto distance, and an in-domain flag. Unparseable SMILES come
+  back as error records, not crashes.
+- `POST /drift` takes the same payload and returns a batch drift report:
+  nn-distance vs the eval baseline, in-domain fraction, bit-frequency
+  Jensen-Shannon divergence, predicted-positive-rate shift. A
+  `drift_warning` status means the measured metrics no longer apply to
+  that batch.
+- `GET /health`, `GET /model_card`.
+- CLI equivalent for a scored batch file:
+  `python -m comp_tox.serve.drift batch.parquet model.joblib serve_reference.npz drift_report.json`
+
+Drift thresholds are calibrated, not guessed. The JS-divergence baseline
+is the eval set's own divergence from train, so a batch only warns when
+it exceeds what an on-distribution batch already scores. Verified live:
+the held-out test set reports `ok`. A 30-compound subsample flags on JS
+alone, because 30 molecules cannot reproduce 2048 bit frequencies, and
+that noise floor is the signal.
+
+`docs/model-card.md` is generated from `results/metrics*.json` and the
+bundle by `comp_tox.serve.modelcard`. The card cannot state numbers the
+evaluation did not measure. The committed card describes the NR-AR
+artifact, the last trained bundle on disk. Serving NR-ER is a config +
+`snakemake` rerun away (its split/features artifacts were overwritten by
+the second-endpoint run).
 
 ## Results
 

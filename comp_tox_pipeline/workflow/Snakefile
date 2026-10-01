@@ -10,6 +10,8 @@ rule all:
     input:
         "results/metrics.json",
         "results/calibration.png",
+        "results/serve_reference.npz",
+        "docs/model-card.md",
 
 
 rule download:
@@ -79,3 +81,26 @@ rule evaluate:
     shell:
         "{PY} -m comp_tox.eval.evaluate {input.model} {input.splits} {input.features}"
         " {input.graphs} --metrics {output.metrics} --calibration {output.calibration}"
+
+
+rule serve_reference:
+    input:
+        splits="data/processed/splits.parquet",
+        features="data/processed/features.npz",
+        metrics="results/metrics.json",
+        model="results/model.joblib",
+    output:
+        "results/serve_reference.npz",
+    shell:
+        "{PY} -m comp_tox.serve.reference {input.splits} {input.features}"
+        " {input.metrics} {input.model} {output}"
+
+
+rule model_card:
+    input:
+        metrics="results/metrics.json",
+        model="results/model.joblib",
+    output:
+        "docs/model-card.md",
+    shell:
+        "{PY} -m comp_tox.serve.modelcard {input.metrics} {input.model} {output}"
