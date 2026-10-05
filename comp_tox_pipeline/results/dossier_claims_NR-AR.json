@@ -1,0 +1,238 @@
+{
+  "passed": true,
+  "n_claims": 46,
+  "claims": [
+    {
+      "token": "0",
+      "bound_to": "bootstrap.seed",
+      "context": "adline estimate. The run used 0 bootstrap resamples. Metrics"
+    },
+    {
+      "token": "5694",
+      "bound_to": "counts.train",
+      "context": "## Data  The split produced 5694 training rows against 711 val"
+    },
+    {
+      "token": "711",
+      "bound_to": "counts.valid",
+      "context": "ed 5694 training rows against 711 validation and 713 test rows."
+    },
+    {
+      "token": "713",
+      "bound_to": "counts.test",
+      "context": "ws against 711 validation and 713 test rows. The held-out set c"
+    },
+    {
+      "token": "17",
+      "bound_to": "counts.test_actives",
+      "context": "ws. The held-out set contains 17 actives at 2.38% prevalence."
+    },
+    {
+      "token": "2.38%",
+      "bound_to": "counts.test_prevalence",
+      "context": "ut set contains 17 actives at 2.38% prevalence.  ## Performance"
+    },
+    {
+      "token": "0.7284",
+      "bound_to": "models.logistic_regression.auroc",
+      "context": "gistic_regression (primary) | 0.7284 | [0.5789, 0.8611] | 0.3568 |"
+    },
+    {
+      "token": "0.5789",
+      "bound_to": "models.logistic_regression.auroc_ci95.0",
+      "context": "ression (primary) | 0.7284 | [0.5789, 0.8611] | 0.3568 | [0.1322,"
+    },
+    {
+      "token": "0.8611",
+      "bound_to": "models.logistic_regression.auroc_ci95.1",
+      "context": "(primary) | 0.7284 | [0.5789, 0.8611] | 0.3568 | [0.1322, 0.5968]"
+    },
+    {
+      "token": "0.3568",
+      "bound_to": "models.logistic_regression.auprc",
+      "context": "| 0.7284 | [0.5789, 0.8611] | 0.3568 | [0.1322, 0.5968] | 0.0095 |"
+    },
+    {
+      "token": "0.1322",
+      "bound_to": "models.logistic_regression.auprc_ci95.0",
+      "context": "[0.5789, 0.8611] | 0.3568 | [0.1322, 0.5968] | 0.0095 | | random_"
+    },
+    {
+      "token": "0.5968",
+      "bound_to": "models.logistic_regression.auprc_ci95.1",
+      "context": ", 0.8611] | 0.3568 | [0.1322, 0.5968] | 0.0095 | | random_forest |"
+    },
+    {
+      "token": "0.0095",
+      "bound_to": "models.logistic_regression.ece",
+      "context": "| 0.3568 | [0.1322, 0.5968] | 0.0095 | | random_forest | 0.8300 | ["
+    },
+    {
+      "token": "0.8300",
+      "bound_to": "models.random_forest.auroc",
+      "context": "| 0.0095 | | random_forest | 0.8300 | [0.7094, 0.9276] | 0.3205 |"
+    },
+    {
+      "token": "0.7094",
+      "bound_to": "models.random_forest.auroc_ci95.0",
+      "context": "| | random_forest | 0.8300 | [0.7094, 0.9276] | 0.3205 | [0.1245,"
+    },
+    {
+      "token": "0.9276",
+      "bound_to": "models.random_forest.auroc_ci95.1",
+      "context": "om_forest | 0.8300 | [0.7094, 0.9276] | 0.3205 | [0.1245, 0.5908]"
+    },
+    {
+      "token": "0.3205",
+      "bound_to": "models.random_forest.auprc",
+      "context": "| 0.8300 | [0.7094, 0.9276] | 0.3205 | [0.1245, 0.5908] | 0.0095 |"
+    },
+    {
+      "token": "0.1245",
+      "bound_to": "models.random_forest.auprc_ci95.0",
+      "context": "[0.7094, 0.9276] | 0.3205 | [0.1245, 0.5908] | 0.0095 | | gnn | 0"
+    },
+    {
+      "token": "0.5908",
+      "bound_to": "models.random_forest.auprc_ci95.1",
+      "context": ", 0.9276] | 0.3205 | [0.1245, 0.5908] | 0.0095 | | gnn | 0.8309 |"
+    },
+    {
+      "token": "0.0095",
+      "bound_to": "models.logistic_regression.ece",
+      "context": "| 0.3205 | [0.1245, 0.5908] | 0.0095 | | gnn | 0.8309 | [0.7120, 0."
+    },
+    {
+      "token": "0.8309",
+      "bound_to": "models.gnn.auroc",
+      "context": "5, 0.5908] | 0.0095 | | gnn | 0.8309 | [0.7120, 0.9343] | 0.2983 |"
+    },
+    {
+      "token": "0.7120",
+      "bound_to": "models.gnn.auroc_ci95.0",
+      "context": "| 0.0095 | | gnn | 0.8309 | [0.7120, 0.9343] | 0.2983 | [0.0995,"
+    },
+    {
+      "token": "0.9343",
+      "bound_to": "models.gnn.auroc_ci95.1",
+      "context": "5 | | gnn | 0.8309 | [0.7120, 0.9343] | 0.2983 | [0.0995, 0.5427]"
+    },
+    {
+      "token": "0.2983",
+      "bound_to": "models.gnn.auprc",
+      "context": "| 0.8309 | [0.7120, 0.9343] | 0.2983 | [0.0995, 0.5427] | 0.0192 |"
+    },
+    {
+      "token": "0.0995",
+      "bound_to": "models.gnn.auprc_ci95.0",
+      "context": "[0.7120, 0.9343] | 0.2983 | [0.0995, 0.5427] | 0.0192 | | mlp_tf"
+    },
+    {
+      "token": "0.5427",
+      "bound_to": "models.gnn.auprc_ci95.1",
+      "context": ", 0.9343] | 0.2983 | [0.0995, 0.5427] | 0.0192 | | mlp_tf | 0.3445"
+    },
+    {
+      "token": "0.0192",
+      "bound_to": "models.gnn.ece",
+      "context": "| 0.2983 | [0.0995, 0.5427] | 0.0192 | | mlp_tf | 0.3445 | [0.1674,"
+    },
+    {
+      "token": "0.3445",
+      "bound_to": "models.mlp_tf.auroc",
+      "context": "0.5427] | 0.0192 | | mlp_tf | 0.3445 | [0.1674, 0.5393] | 0.0200 |"
+    },
+    {
+      "token": "0.1674",
+      "bound_to": "models.mlp_tf.auroc_ci95.0",
+      "context": "0.0192 | | mlp_tf | 0.3445 | [0.1674, 0.5393] | 0.0200 | [0.0112,"
+    },
+    {
+      "token": "0.5393",
+      "bound_to": "models.mlp_tf.auroc_ci95.1",
+      "context": "| mlp_tf | 0.3445 | [0.1674, 0.5393] | 0.0200 | [0.0112, 0.0376]"
+    },
+    {
+      "token": "0.0200",
+      "bound_to": "models.mlp_tf.auprc",
+      "context": "| 0.3445 | [0.1674, 0.5393] | 0.0200 | [0.0112, 0.0376] | 0.0095 |"
+    },
+    {
+      "token": "0.0112",
+      "bound_to": "models.mlp_tf.auprc_ci95.0",
+      "context": "[0.1674, 0.5393] | 0.0200 | [0.0112, 0.0376] | 0.0095 |  ## Uncer"
+    },
+    {
+      "token": "0.0376",
+      "bound_to": "models.mlp_tf.auprc_ci95.1",
+      "context": ", 0.5393] | 0.0200 | [0.0112, 0.0376] | 0.0095 |  ## Uncertainty"
+    },
+    {
+      "token": "0.0095",
+      "bound_to": "models.logistic_regression.ece",
+      "context": "| 0.0200 | [0.0112, 0.0376] | 0.0095 |  ## Uncertainty  The conform"
+    },
+    {
+      "token": "0.1",
+      "bound_to": "models.logistic_regression.auprc_ci95.0",
+      "context": "miscoverage target is alpha = 0.1 and measured coverage on held"
+    },
+    {
+      "token": "0.9144",
+      "bound_to": "models.logistic_regression.conformal.mean_set_size",
+      "context": "e mean prediction-set size is 0.9144 with a 91.44% singleton fract"
+    },
+    {
+      "token": "91.44%",
+      "bound_to": "models.logistic_regression.conformal.mean_set_size",
+      "context": "ion-set size is 0.9144 with a 91.44% singleton fraction.  ## Appli"
+    },
+    {
+      "token": "0.3",
+      "bound_to": "models.logistic_regression.applicability_domain.threshold",
+      "context": "eighbor Tanimoto threshold is 0.3 and 19.78% of held-out compou"
+    },
+    {
+      "token": "19.78%",
+      "bound_to": "models.logistic_regression.applicability_domain.in_domain_fraction",
+      "context": "Tanimoto threshold is 0.3 and 19.78% of held-out compounds land in"
+    },
+    {
+      "token": "0.9203",
+      "bound_to": "models.logistic_regression.applicability_domain.in_domain.auroc",
+      "context": "000. The primary model scores 0.9203 AUROC and 0.5841 AUPRC in-dom"
+    },
+    {
+      "token": "0.5841",
+      "bound_to": "models.logistic_regression.applicability_domain.in_domain.auprc",
+      "context": "model scores 0.9203 AUROC and 0.5841 AUPRC in-domain against 0.701"
+    },
+    {
+      "token": "0.7016",
+      "bound_to": "models.logistic_regression.applicability_domain.out_domain.auroc",
+      "context": ".5841 AUPRC in-domain against 0.7016 AUROC and 0.3232 AUPRC out-of"
+    },
+    {
+      "token": "0.3232",
+      "bound_to": "models.logistic_regression.applicability_domain.out_domain.auprc",
+      "context": "main against 0.7016 AUROC and 0.3232 AUPRC out-of-domain. Conforma"
+    },
+    {
+      "token": "90.78%",
+      "bound_to": "models.logistic_regression.applicability_domain.conformal_coverage_in_domain",
+      "context": ". Conformal coverage holds at 90.78% in-domain and 90.03% out-of-d"
+    },
+    {
+      "token": "90.03%",
+      "bound_to": "models.logistic_regression.applicability_domain.conformal_coverage_out_domain",
+      "context": "holds at 90.78% in-domain and 90.03% out-of-domain.  ## Limitation"
+    },
+    {
+      "token": "19.78%",
+      "bound_to": "models.logistic_regression.applicability_domain.in_domain_fraction",
+      "context": "ter_with_replacement). - Only 19.78% of held-out compounds fall in"
+    }
+  ],
+  "unbound_claims": [],
+  "forbidden": []
+}

@@ -1,0 +1,158 @@
+{
+  "passed": true,
+  "n_claims": 30,
+  "claims": [
+    {
+      "token": "0",
+      "bound_to": "counts.test_prevalence",
+      "context": "adline estimate. The run used 0 bootstrap resamples. Metrics"
+    },
+    {
+      "token": "4872",
+      "bound_to": "counts.train",
+      "context": "## Data  The split produced 4872 training rows against 609 val"
+    },
+    {
+      "token": "609",
+      "bound_to": "counts.valid",
+      "context": "ed 4872 training rows against 609 validation and 610 test rows."
+    },
+    {
+      "token": "610",
+      "bound_to": "counts.test",
+      "context": "ws against 609 validation and 610 test rows. The held-out set c"
+    },
+    {
+      "token": "55",
+      "bound_to": "counts.test_actives",
+      "context": "ws. The held-out set contains 55 actives at 9.02% prevalence."
+    },
+    {
+      "token": "9.02%",
+      "bound_to": "counts.test_prevalence",
+      "context": "ut set contains 55 actives at 9.02% prevalence.  ## Performance"
+    },
+    {
+      "token": "0.6437",
+      "bound_to": "models.logistic_regression.auroc",
+      "context": "gistic_regression (primary) | 0.6437 | not available | 0.2445 | not"
+    },
+    {
+      "token": "0.2445",
+      "bound_to": "models.logistic_regression.auprc",
+      "context": "y) | 0.6437 | not available | 0.2445 | not available | 0.0328 | | r"
+    },
+    {
+      "token": "0.0328",
+      "bound_to": "models.logistic_regression.ece",
+      "context": "le | 0.2445 | not available | 0.0328 | | random_forest | 0.7261 | n"
+    },
+    {
+      "token": "0.7261",
+      "bound_to": "models.random_forest.auroc",
+      "context": "| 0.0328 | | random_forest | 0.7261 | not available | 0.2740 | not"
+    },
+    {
+      "token": "0.2740",
+      "bound_to": "models.random_forest.auprc",
+      "context": "st | 0.7261 | not available | 0.2740 | not available | 0.0445 | | g"
+    },
+    {
+      "token": "0.0445",
+      "bound_to": "models.random_forest.ece",
+      "context": "le | 0.2740 | not available | 0.0445 | | gnn | 0.6657 | not availab"
+    },
+    {
+      "token": "0.6657",
+      "bound_to": "models.gnn.auroc",
+      "context": "available | 0.0445 | | gnn | 0.6657 | not available | 0.2487 | not"
+    },
+    {
+      "token": "0.2487",
+      "bound_to": "models.gnn.auprc",
+      "context": "nn | 0.6657 | not available | 0.2487 | not available | 0.0403 | | m"
+    },
+    {
+      "token": "0.0403",
+      "bound_to": "models.gnn.ece",
+      "context": "le | 0.2487 | not available | 0.0403 | | mlp_tf | 0.6788 | not avai"
+    },
+    {
+      "token": "0.6788",
+      "bound_to": "models.mlp_tf.auroc",
+      "context": "ailable | 0.0403 | | mlp_tf | 0.6788 | not available | 0.3136 | not"
+    },
+    {
+      "token": "0.3136",
+      "bound_to": "models.mlp_tf.auprc",
+      "context": "tf | 0.6788 | not available | 0.3136 | not available | 0.0528 |  ##"
+    },
+    {
+      "token": "0.0528",
+      "bound_to": "models.mlp_tf.ece",
+      "context": "le | 0.3136 | not available | 0.0528 |  ## Uncertainty  The conform"
+    },
+    {
+      "token": "0.1",
+      "bound_to": "counts.test_prevalence",
+      "context": "miscoverage target is alpha = 0.1 and measured coverage on held"
+    },
+    {
+      "token": "1.0443",
+      "bound_to": "models.logistic_regression.conformal.mean_set_size",
+      "context": "e mean prediction-set size is 1.0443 with a 95.57% singleton fract"
+    },
+    {
+      "token": "95.57%",
+      "bound_to": "models.logistic_regression.conformal.singleton_fraction",
+      "context": "ion-set size is 1.0443 with a 95.57% singleton fraction.  ## Appli"
+    },
+    {
+      "token": "0.3",
+      "bound_to": "models.logistic_regression.applicability_domain.threshold",
+      "context": "eighbor Tanimoto threshold is 0.3 and 17.87% of held-out compou"
+    },
+    {
+      "token": "17.87%",
+      "bound_to": "models.logistic_regression.applicability_domain.in_domain_fraction",
+      "context": "Tanimoto threshold is 0.3 and 17.87% of held-out compounds land in"
+    },
+    {
+      "token": "0.7510",
+      "bound_to": "models.logistic_regression.applicability_domain.in_domain.auroc",
+      "context": "026. The primary model scores 0.7510 AUROC and 0.3249 AUPRC in-dom"
+    },
+    {
+      "token": "0.3249",
+      "bound_to": "models.logistic_regression.applicability_domain.in_domain.auprc",
+      "context": "model scores 0.7510 AUROC and 0.3249 AUPRC in-domain against 0.618"
+    },
+    {
+      "token": "0.6186",
+      "bound_to": "models.logistic_regression.applicability_domain.out_domain.auroc",
+      "context": ".3249 AUPRC in-domain against 0.6186 AUROC and 0.2384 AUPRC out-of"
+    },
+    {
+      "token": "0.2384",
+      "bound_to": "models.logistic_regression.applicability_domain.out_domain.auprc",
+      "context": "main against 0.6186 AUROC and 0.2384 AUPRC out-of-domain. Conforma"
+    },
+    {
+      "token": "93.58%",
+      "bound_to": "models.logistic_regression.applicability_domain.conformal_coverage_in_domain",
+      "context": ". Conformal coverage holds at 93.58% in-domain and 92.81% out-of-d"
+    },
+    {
+      "token": "92.81%",
+      "bound_to": "models.logistic_regression.applicability_domain.conformal_coverage_out_domain",
+      "context": "holds at 93.58% in-domain and 92.81% out-of-domain.  ## Limitation"
+    },
+    {
+      "token": "17.87%",
+      "bound_to": "models.logistic_regression.applicability_domain.in_domain_fraction",
+      "context": "are empty accordingly. - Only 17.87% of held-out compounds fall in"
+    }
+  ],
+  "unbound_claims": [],
+  "forbidden": []
+}
