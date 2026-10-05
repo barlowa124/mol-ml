@@ -12,6 +12,7 @@ rule all:
         "results/calibration.png",
         "results/serve_reference.npz",
         "docs/model-card.md",
+        "docs/nam_dossier.md",
 
 
 rule download:
@@ -104,3 +105,15 @@ rule model_card:
         "docs/model-card.md",
     shell:
         "{PY} -m comp_tox.serve.modelcard {input.metrics} {input.model} {output}"
+
+
+rule dossier:
+    input:
+        metrics="results/metrics.json",
+        cfg="config/config.yaml",
+    output:
+        "docs/nam_dossier.md",
+    shell:
+        "{PY} -m comp_tox.dossier --metrics {input.metrics}"
+        " --config {input.cfg} --out {output} --verify {output}"
+        " --claims-out results/dossier_claims.json"

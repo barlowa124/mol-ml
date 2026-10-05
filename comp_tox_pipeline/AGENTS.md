@@ -13,3 +13,10 @@
 - Run `python -m pytest tests/` and `snakemake -n` after changes.
 - Keep `config/config.yaml` the single source of truth for endpoint, split, and
   evaluation settings; no hardcoded endpoints in `src/`.
+- `src/comp_tox/claims.py` is vendored byte-identical with
+  `bio-qc/statgen`, `bio-qc/scrna_qc`, and `llm-posttraining/evals`. The
+  mol-ml root parity test pins the sha256. Edit all four copies together.
+- `comp_tox.dossier` generates `docs/nam_dossier*.md` from a metrics
+  artifact. Every number in the dossier must bind via `--verify`, and the
+  limitations section is generated from artifact status fields, not
+  hand-written.
