@@ -9,6 +9,16 @@ self-contained package with its own tests and commit history (imported via
 subtree merge).
 
 
+## 60-second demo
+
+```bash
+cd comp_tox_pipeline && pip install -e .[dev]
+snakemake --cores 4    # full split -> features -> fit -> report DAG (stubbed IO)
+```
+
+![conformal calibration on held-out Tox21 NR-ER scaffolds](comp_tox_pipeline/results/calibration.png)
+
+
 ## Where this sits in the portfolio
 
 `mol-ml` is the **small-molecule ML** repo: toxicity and affinity prediction on public datasets (ToxCast/Tox21, DAVIS) with scaffold/cold-target splits as the headline results. Sibling repos:
